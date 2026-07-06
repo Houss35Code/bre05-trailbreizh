@@ -1,0 +1,175 @@
+@use 'variables' as *;
+
+.profile-header-title {
+    font-weight: 600;
+    font-size: 20px;
+    color: $color-dark;
+    line-height: 1.2;
+}
+
+.profile-page {
+    padding: 48px 0;
+}
+
+.profile-page-inner {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.profile-card {
+    background: $color-white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: $border-radius-sm;
+    padding: 24px;
+
+    @media (min-width: $breakpoint-mobile) {
+        padding: 32px;
+    }
+}
+
+.profile-card-content {
+    max-width: 576px; // équivalent max-w-xl
+}
+
+.profile-section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-dark;
+}
+
+.profile-section-text {
+    margin-top: 4px;
+    font-size: 14px;
+    color: $color-gray;
+}
+
+.profile-form {
+    margin-top: 24px;
+
+    > * + * {
+        margin-top: 24px; // équivalent space-y-6
+    }
+}
+
+.profile-form-group {
+    // pas de style propre nécessaire, sert juste de conteneur
+}
+
+.profile-form-input {
+    margin-top: 4px;
+    display: block;
+    width: 100%;
+}
+
+.profile-verify-text {
+    margin-top: 8px;
+    font-size: 14px;
+    color: $color-dark;
+}
+
+.profile-verify-link {
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    font-size: 14px;
+    color: $color-gray;
+    cursor: pointer;
+
+    &:hover {
+        color: $color-dark;
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary;
+        border-radius: $border-radius-sm;
+    }
+}
+
+.profile-verify-success {
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: $color-success;
+}
+
+.profile-form-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-saved-text {
+    font-size: 14px;
+    color: $color-gray;
+}
+
+.profile-section {
+    > * + * {
+        margin-top: 24px; // équivalent space-y-6
+    }
+}
+
+.profile-modal-form {
+    padding: 24px;
+}
+
+.profile-modal-group {
+    margin-top: 24px;
+}
+
+.profile-modal-input {
+    margin-top: 4px;
+    display: block;
+    width: 75%; // équivalent w-3/4
+}
+
+.profile-modal-actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.profile-modal-delete-btn {
+    margin-left: 12px;
+}
+
+// Utilitaire d'accessibilité : cache visuellement mais garde lisible pour les lecteurs d'écran
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.app-body {
+    font-family: $font-family;
+    color: $color-dark;
+}
+
+.app-shell {
+    min-height: 100vh;
+    background: $color-bg;
+}
+
+.app-header {
+    background: $color-white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.app-header-inner {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 24px 24px;
+}

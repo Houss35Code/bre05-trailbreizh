@@ -1,0 +1,256 @@
+@use 'variables' as *;
+
+.auth-status {
+    font-weight: 500;
+    font-size: 14px;
+    color: $color-success;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-radius: $border-radius-sm;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px $color-white, 0 0 0 4px currentColor;
+    }
+}
+
+.btn-danger {
+    background: $color-danger;
+    color: $color-white;
+
+    &:hover {
+        background: darken($color-danger, 8%);
+    }
+
+    &:active {
+        background: darken($color-danger, 15%);
+    }
+}
+
+.btn-primary {
+    background: $color-primary;
+    color: $color-white;
+
+    &:hover {
+        background: $color-primary-dark;
+    }
+
+    &:active {
+        background: $color-primary-darker;
+    }
+}
+
+.btn-secondary {
+    background: $color-white;
+    border: 1px solid $color-border;
+    color: $color-dark;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+    &:hover {
+        background: $color-bg;
+    }
+
+    &:disabled {
+        opacity: 0.25;
+    }
+}
+
+.input-error-list {
+    font-size: 14px;
+    color: $color-danger;
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+
+    li + li {
+        margin-top: 4px;
+    }
+}
+
+.auth-body {
+    font-family: $font-family;
+    color: $color-dark;
+    background: $color-bg;
+}
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.auth-logo-link {
+    margin-bottom: 24px;
+}
+
+.auth-logo {
+    width: 80px;
+    height: 80px;
+    fill: $color-primary;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    margin-top: 24px;
+    padding: 32px 24px;
+    background: $color-white;
+    border-radius: $border-radius-md;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    z-index: 50;
+    margin-top: 8px;
+    width: 192px; // équivalent w-48
+    border-radius: $border-radius-sm;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    &--right {
+        right: 0;
+    }
+
+    &--left {
+        left: 0;
+    }
+
+    &--top {
+        bottom: 100%;
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+}
+
+.dropdown-content {
+    padding: 4px 0;
+    background: $color-white;
+    border-radius: $border-radius-sm;
+    border: 1px solid $color-border;
+}
+
+// Transitions Alpine.js
+.dropdown-transition-enter {
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.dropdown-transition-enter-start {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.dropdown-transition-enter-end {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.dropdown-transition-leave {
+    transition: opacity 0.075s ease-in, transform 0.075s ease-in;
+}
+
+.dropdown-transition-leave-start {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.dropdown-transition-leave-end {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.auth-status-block {
+    margin-bottom: 16px;
+}
+
+.auth-form-group {
+    margin-top: 16px;
+}
+
+.auth-checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.auth-checkbox {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1px solid $color-border;
+    accent-color: $color-primary;
+}
+
+.auth-checkbox-text {
+    margin-left: 8px;
+    font-size: 14px;
+    color: $color-gray;
+}
+
+.auth-form-footer {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.auth-link {
+    font-size: 14px;
+    color: $color-gray;
+    text-decoration: underline;
+
+    &:hover {
+        color: $color-dark;
+    }
+}
+
+.auth-submit-btn {
+    margin-left: 0; // le gap du flex gère déjà l'espacement
+}
+
+.auth-intro-text {
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: $color-gray;
+}
+
+.auth-success-text {
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-size: 14px;
+    color: $color-success;
+}
+
+.auth-actions-row {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.auth-link--button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+}

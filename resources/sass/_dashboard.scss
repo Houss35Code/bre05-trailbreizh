@@ -1,0 +1,145 @@
+@use 'variables' as *;
+
+.dashboard-container {
+    max-width: $max-width;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+.dashboard-welcome {
+    background: $color-primary-light;
+    border: 1px solid $color-primary-bg;
+    border-radius: $border-radius-md;
+    padding: 20px 24px;
+    margin-bottom: 32px;
+}
+
+.dashboard-welcome-title {
+    color: $color-primary;
+    font-size: 22px;
+    margin: 0 0 4px;
+}
+
+.dashboard-welcome-text {
+    color: #555;
+    font-size: 14px;
+    margin: 0;
+}
+
+.dashboard-block {
+    background: $color-white;
+    border-radius: $border-radius-md;
+    padding: 24px;
+    margin-bottom: 32px;
+    border: 1px solid $color-border;
+}
+
+.dashboard-block-title {
+    color: $color-primary;
+    font-size: 20px;
+    margin: 0 0 16px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    &--tight {
+        width: 100%;
+        margin-bottom: 6px;
+    }
+}
+
+.dashboard-add-btn {
+    background: $color-primary;
+    color: $color-white;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: $border-radius-sm;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dashboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.dashboard-item--column {
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.dashboard-block-title--inline {
+    margin: 0;
+}
+
+.dashboard-item-link {
+    color: $color-primary;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.dashboard-item-meta {
+    font-size: 13px;
+    color: $color-gray;
+    margin-top: 4px;
+}
+
+.dashboard-item-badge {
+    background: $color-primary-light;
+    color: $color-primary;
+    padding: 4px 10px;
+    border-radius: $border-radius-lg;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.dashboard-empty {
+    color: $color-gray;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.dashboard-remove-btn {
+    background: none;
+    border: none;
+    color: #c0392b;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.avis-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avis-stars-small {
+    color: $color-accent;
+}
+
+.avis-date-small {
+    color: #aaa;
+    font-size: 13px;
+}
+
+.avis-comment {
+    color: #555;
+    margin: 0;
+    font-size: 14px;
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}

@@ -1,0 +1,148 @@
+@use 'variables' as *;
+
+.forum-show-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+// Sujet principal
+.topic-block {
+    background: $color-white;
+    border-radius: $border-radius-md;
+    padding: 28px;
+    border: 1px solid $color-border;
+    margin-bottom: 24px;
+}
+
+.topic-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.topic-block-title {
+    color: $color-primary;
+    font-size: 24px;
+    margin: 10px 0 4px;
+}
+
+.topic-block-meta {
+    font-size: 13px;
+    color: $color-gray;
+}
+
+.topic-block-content {
+    color: #444;
+    line-height: 1.7;
+    margin: 0;
+}
+
+// Réponses
+.reponses-title {
+    color: $color-primary;
+    font-size: 20px;
+    margin: 0 0 16px;
+}
+
+.reponse-block {
+    background: $color-white;
+    border-radius: $border-radius-md;
+    padding: 20px 24px;
+    border: 1px solid $color-border;
+    margin-bottom: 12px;
+}
+
+.reponse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reponse-meta {
+    font-size: 13px;
+    color: $color-gray;
+}
+
+.reponse-author {
+    color: #333;
+}
+
+.reponse-delete-btn {
+    background: none;
+    border: none;
+    color: #c0392b;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.reponse-content {
+    color: #444;
+    line-height: 1.7;
+    margin: 0;
+}
+
+// Formulaire réponse
+.reponse-form-block {
+    background: $color-white;
+    border-radius: $border-radius-md;
+    padding: 24px;
+    border: 1px solid $color-border;
+    margin-top: 24px;
+}
+
+.reponse-form-title {
+    color: $color-primary;
+    font-size: 18px;
+    margin: 0 0 16px;
+}
+
+.reponse-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: $border-radius-sm;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+}
+
+.reponse-submit-btn {
+    background: $color-primary;
+    color: $color-white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: $border-radius-sm;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+// Alert connexion
+.forum-login-alert {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: $border-radius-md;
+    padding: 20px;
+    margin-top: 24px;
+}
+
+.forum-login-alert-text {
+    margin: 0;
+    color: #856404;
+}
+
+.forum-login-link {
+    color: $color-primary;
+    font-weight: 600;
+}
+
+// Retour
+.forum-back-link {
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 24px;
+}

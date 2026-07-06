@@ -1,0 +1,128 @@
+@use 'variables' as *;
+
+.navbar {
+    background-color: $color-primary;
+}
+
+.nav-inner {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $nav-height;
+}
+
+.nav-logo {
+    color: $color-white;
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.nav-link {
+    color: $color-white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.nav-admin-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: $color-white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.nav-auth {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.nav-btn {
+    background: $color-accent;
+    color: $color-white;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: $color-white;
+}
+
+.nav-mobile {
+    background-color: $color-primary-darker;
+    padding: 16px 24px;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nav-mobile-link {
+    color: $color-white;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: block;
+}
+
+.nav-mobile-btn {
+    background: $color-accent;
+    color: $color-white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .nav-links,
+    .nav-auth {
+        display: none !important;
+    }
+
+    .nav-burger {
+        display: block !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .nav-mobile {
+        display: none !important;
+    }
+}
+
+[x-show].nav-mobile {
+    display: flex;
+    flex-direction: column;
+}

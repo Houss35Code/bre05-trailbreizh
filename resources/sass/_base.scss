@@ -1,0 +1,7 @@
+@use 'variables' as *;
+
+.site-body {
+    margin: 0;
+    font-family: $font-family;
+    background: $color-bg;
+}

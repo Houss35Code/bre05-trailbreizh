@@ -1,0 +1,396 @@
+@use 'variables' as *;
+
+.show-container {
+    max-width: $max-width;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+// Fil d'ariane
+.breadcrumb {
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: $color-gray;
+}
+
+.breadcrumb-link {
+    color: $color-primary;
+    text-decoration: none;
+}
+
+// Layout principal
+.show-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 32px;
+}
+
+// Carte Leaflet
+.show-map {
+    height: 400px;
+    border-radius: $border-radius-md;
+    margin-bottom: 24px;
+    z-index: 1;
+}
+
+// Bloc info principal
+.show-block {
+    background: $color-white;
+    border-radius: $border-radius-md;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid $color-border;
+}
+
+.show-block-title {
+    color: $color-primary;
+    font-size: 18px;
+    margin: 0 0 12px;
+}
+
+.show-title {
+    color: $color-primary;
+    font-size: 28px;
+    margin: 0;
+}
+
+.show-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+// Boutons favoris
+.btn-favori-add {
+    background: $color-primary-light;
+    border: 1px solid $color-primary-bg;
+    color: $color-primary;
+    padding: 8px 16px;
+    border-radius: $border-radius-lg;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-favori-remove {
+    background: #fdecea;
+    border: 1px solid #f5c6cb;
+    color: #c0392b;
+    padding: 8px 16px;
+    border-radius: $border-radius-lg;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+// Métriques
+.metriques-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.metrique-item {
+    background: $color-primary-light;
+    border-radius: $border-radius-sm;
+    padding: 12px;
+    text-align: center;
+}
+
+.metrique-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: $color-primary;
+}
+
+.metrique-label {
+    font-size: 12px;
+    color: #666;
+}
+
+.show-description-title {
+    color: $color-primary;
+    font-size: 18px;
+    margin: 0 0 12px;
+}
+
+.show-description {
+    color: #444;
+    line-height: 1.7;
+    margin: 0;
+}
+
+// GPX
+.gpx-btn {
+    display: inline-block;
+    background: $color-primary;
+    color: $color-white;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: $border-radius-sm;
+    font-weight: 600;
+}
+
+.gpx-empty {
+    color: $color-gray;
+    margin: 0;
+}
+
+.gpx-alert {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: $border-radius-md;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.gpx-alert-text {
+    margin: 0;
+    color: #856404;
+}
+
+.gpx-alert-link {
+    color: $color-primary;
+    font-weight: 600;
+}
+
+// Photos
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.photo-item {
+    position: relative;
+}
+
+.photo-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: $border-radius-sm;
+}
+
+.photo-delete-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    color: $color-white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.photos-empty {
+    color: $color-gray;
+    margin: 0 0 16px;
+}
+
+.photo-upload-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.photo-upload-btn {
+    background: $color-primary;
+    color: $color-white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: $border-radius-sm;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.photo-upload-hint {
+    color: #aaa;
+    font-size: 12px;
+    margin: 6px 0 0;
+}
+
+// Avis
+.avis-item {
+    border-bottom: 1px solid #eee;
+    padding: 16px 0;
+}
+
+.avis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.avis-author {
+    color: #333;
+}
+
+.avis-stars {
+    color: $color-accent;
+    margin-left: 8px;
+}
+
+.avis-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avis-date {
+    color: #aaa;
+    font-size: 13px;
+}
+
+.avis-delete-btn {
+    background: none;
+    border: none;
+    color: #c0392b;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.avis-text {
+    color: #555;
+    margin: 0;
+}
+
+.avis-empty {
+    color: $color-gray;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.avis-form-section {
+    border-top: 1px solid #eee;
+    padding-top: 16px;
+    margin-top: 16px;
+}
+
+.avis-form-title {
+    color: $color-primary;
+    font-size: 16px;
+    margin: 0 0 12px;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.form-select,
+.form-textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.form-textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-submit-btn {
+    background: $color-primary;
+    color: $color-white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: $border-radius-sm;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+// Alertes
+.alert-success {
+    background: $color-primary-light;
+    border: 1px solid $color-primary-bg;
+    color: $color-primary;
+    padding: 10px 16px;
+    border-radius: $border-radius-sm;
+    margin-bottom: 16px;
+}
+
+.alert-error {
+    background: #fdecea;
+    border: 1px solid #f5c6cb;
+    color: #c0392b;
+    padding: 10px 16px;
+    border-radius: $border-radius-sm;
+    margin-bottom: 16px;
+}
+
+// Sidebar
+.show-sidebar-block {
+    background: $color-white;
+    border-radius: $border-radius-md;
+    padding: 20px;
+    border: 1px solid $color-border;
+    margin-bottom: 16px;
+}
+
+.show-sidebar-title {
+    color: $color-primary;
+    font-size: 16px;
+    margin: 0 0 14px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-label {
+    color: #666;
+    font-size: 14px;
+}
+
+.info-value {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn-back {
+    display: block;
+    text-align: center;
+    background: $color-primary-light;
+    color: $color-primary;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: $border-radius-sm;
+    font-weight: 600;
+    border: 1px solid $color-primary-bg;
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .show-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .metriques-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .photos-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

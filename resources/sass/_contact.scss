@@ -1,0 +1,71 @@
+.contact-lead {
+    color: #888;
+    font-size: 15px;
+    margin: 0 0 40px;
+}
+
+.contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #f5f5f0;
+    border-radius: 12px;
+    padding: 20px 24px;
+    text-decoration: none;
+    border: 1px solid #e0e0e0;
+    transition: box-shadow 0.2s;
+
+    &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.contact-icon {
+    background: #1a5c38;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-label {
+    font-weight: 600;
+    color: #1a5c38;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.contact-value {
+    color: #666;
+    font-size: 14px;
+}
+
+.contact-arrow {
+    margin-left: auto;
+    color: #aaa;
+    font-size: 20px;
+}
+
+.contact-note {
+    background: #e8f4ed;
+    border-left: 4px solid #1a5c38;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-top: 32px;
+
+    p {
+        color: #1a5c38;
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 0;
+    }
+}

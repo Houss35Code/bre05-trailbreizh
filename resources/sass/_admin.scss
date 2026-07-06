@@ -1,0 +1,265 @@
+@use 'variables' as *;
+
+.admin-container {
+    max-width: $max-width;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+.admin-page-title {
+    color: $color-primary;
+    font-size: 28px;
+    margin: 0 0 32px;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.admin-back-link {
+    color: $color-gray;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+// Stats
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.admin-stat-block {
+    background: $color-white;
+    border-radius: $border-radius-md;
+    padding: 24px;
+    border: 1px solid $color-border;
+    text-align: center;
+}
+
+.admin-stat-number {
+    font-size: 40px;
+    font-weight: 700;
+    color: $color-primary;
+}
+
+.admin-stat-label {
+    font-size: 15px;
+    color: #666;
+    margin-top: 6px;
+}
+
+.admin-stat-btn {
+    display: inline-block;
+    margin-top: 12px;
+    background: $color-primary-light;
+    color: $color-primary;
+    text-decoration: none;
+    padding: 6px 16px;
+    border-radius: $border-radius-sm;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+// Navigation admin
+.admin-nav-block {
+    background: $color-white;
+    border-radius: $border-radius-md;
+    padding: 24px;
+    border: 1px solid $color-border;
+}
+
+.admin-nav-title {
+    color: $color-primary;
+    font-size: 20px;
+    margin: 0 0 16px;
+}
+
+.admin-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.admin-nav-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: $color-bg;
+    border-radius: $border-radius-sm;
+    text-decoration: none;
+    color: #333;
+}
+
+.admin-nav-link-label {
+    font-weight: 600;
+}
+
+.admin-nav-link-arrow {
+    color: $color-gray;
+}
+
+// Liste admin
+.admin-list {
+    background: $color-white;
+    border-radius: $border-radius-md;
+    border: 1px solid $color-border;
+    overflow: hidden;
+}
+
+.admin-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #eee;
+}
+
+.admin-row-link {
+    color: $color-primary;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.admin-row-meta {
+    font-size: 13px;
+    color: $color-gray;
+    margin-top: 4px;
+}
+
+.admin-row-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin-badge {
+    background: $color-primary-light;
+    color: $color-primary;
+    padding: 4px 10px;
+    border-radius: $border-radius-lg;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.admin-delete-btn {
+    background: #fdecea;
+    border: 1px solid #f5c6cb;
+    color: #c0392b;
+    padding: 6px 14px;
+    border-radius: $border-radius-sm;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.admin-empty {
+    padding: 40px;
+    text-align: center;
+    color: $color-gray;
+}
+
+.admin-pagination {
+    margin-top: 24px;
+}
+
+// Utilisateurs
+.user-avatar {
+    background: $color-accent;
+    color: $color-white;
+    font-weight: 700;
+    font-size: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.user-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+}
+
+.user-admin-badge {
+    background: $color-primary;
+    color: $color-white;
+    padding: 2px 8px;
+    border-radius: $border-radius-lg;
+    font-size: 11px;
+    margin-left: 6px;
+}
+
+.user-meta {
+    font-size: 13px;
+    color: $color-gray;
+    margin-top: 2px;
+}
+
+.user-own-label {
+    color: #aaa;
+    font-size: 13px;
+}
+
+// Avis admin
+.avis-admin-author {
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.avis-admin-stars {
+    color: $color-accent;
+    margin-left: 8px;
+}
+
+.avis-admin-meta {
+    font-size: 13px;
+    color: $color-gray;
+    margin-bottom: 6px;
+}
+
+.avis-admin-link {
+    color: $color-primary;
+    text-decoration: none;
+}
+
+.avis-admin-text {
+    color: #555;
+    font-size: 14px;
+    margin: 0;
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .admin-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
