@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Avis extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'user_id',
         'randonnee_id',
@@ -22,5 +25,10 @@ class Avis extends Model
     public function randonnee()
     {
         return $this->belongsTo(Randonnee::class);
+    }
+
+    public function signalements()
+    {
+        return $this->morphMany(Signalement::class, 'signalable');
     }
 }

@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Randonnee extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'user_id',
         'titre',
@@ -20,6 +23,7 @@ class Randonnee extends Model
         'gpx_file',
         'point_depart',
         'statut',
+        'motif_refus',
     ];
 
     public function user()
