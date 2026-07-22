@@ -33,26 +33,47 @@
                 <div class="show-block">
                     <div class="show-title-row">
                         <h1 class="show-title">{{ $randonnee->titre }}</h1>
-                        @auth
-                            @php
-                                $estFavori = auth()->user()->favoris()->where('randonnee_id', $randonnee->id)->exists();
-                            @endphp
-                            @if($estFavori)
-                                <form method="POST" action="{{ route('favoris.destroy') }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <input type="hidden" name="randonnee_id" value="{{ $randonnee->id }}">
-                                    <button type="submit" class="btn-favori-remove">♥ Retirer des favoris</button>
-                                </form>
-                            @else
-                                <form method="POST" action="{{ route('favoris.store') }}">
-                                    @csrf
-                                    <input type="hidden" name="randonnee_id" value="{{ $randonnee->id }}">
-                                    <button type="submit" class="btn-favori-add">♡ Ajouter aux favoris</button>
-                                </form>
-                            @endif
-                        @endauth
+                        <div class="show-title-actions">
+                            @auth
+                                @if(auth()->id() === $randonnee->user_id)
+                                    <a href="{{ route('randonnees.edit', $randonnee) }}" class="btn-edit-randonnee">✎ Modifier</a>
+                                @else
+                                    @php
+                                        $estFavori = auth()->user()->favoris()->where('randonnee_id', $randonnee->id)->exists();
+                                    @endphp
+                                    @if($estFavori)
+                                        <form method="POST" action="{{ route('favoris.destroy') }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="hidden" name="randonnee_id" value="{{ $randonnee->id }}">
+                                            <button type="submit" class="btn-favori-remove">♥ Retirer des favoris</button>
+                                        </form>
+                                    @else
+                                        <form method="POST" action="{{ route('favoris.store') }}">
+                                            @csrf
+                                            <input type="hidden" name="randonnee_id" value="{{ $randonnee->id }}">
+                                            <button type="submit" class="btn-favori-add">♡ Ajouter aux favoris</button>
+                                        </form>
+                                    @endif
+                                @endif
+                            @endauth
+                        </div>
                     </div>
+
+                    @auth
+                        @if(auth()->id() === $randonnee->user_id && $randonnee->statut !== 'publie')
+                            <div class="statut-alert statut-alert--{{ $randonnee->statut }}">
+                                @if($randonnee->statut === 'en_attente')
+                                    <p>⏳ Cette randonnée est en attente de validation par un administrateur.</p>
+                                @elseif($randonnee->statut === 'refuse')
+                                    <p>✕ Cette randonnée a été refusée.</p>
+                                    @if($randonnee->motif_refus)
+                                        <p class="statut-alert-motif"><strong>Motif :</strong> {{ $randonnee->motif_refus }}</p>
+                                    @endif
+                                @endif
+                            </div>
+                        @endif
+                    @endauth
 
                     <!-- MÉTRIQUES -->
                     <div class="metriques-grid">
@@ -170,9 +191,23 @@
                                                 @method('DELETE')
                                                 <button type="submit" class="avis-delete-btn">Supprimer</button>
                                             </form>
+                                        @else
+                                            <button type="button" class="avis-signaler-btn" onclick="document.getElementById('signaler-form-{{ $avis->id }}').classList.toggle('is-visible')">
+                                                Signaler
+                                            </button>
                                         @endif
                                     @endauth
                                 </div>
+
+                                @auth
+                                    @if(auth()->id() !== $avis->user_id)
+                                        <form method="POST" action="{{ route('avis.signaler', $avis) }}" id="signaler-form-{{ $avis->id }}" class="signaler-form">
+                                            @csrf
+                                            <textarea name="motif" class="signaler-textarea" placeholder="Expliquez pourquoi vous signalez cet avis (obligatoire)" required></textarea>
+                                            <button type="submit" class="signaler-submit-btn">Envoyer le signalement</button>
+                                        </form>
+                                    @endif
+                                @endauth
                             </div>
                             <p class="avis-text">{{ $avis->commentaire }}</p>
                         </div>
@@ -235,6 +270,17 @@
                         @endif
                     </div>
                 </div>
+
+                @auth
+                    @if(auth()->id() === $randonnee->user_id)
+                        <form method="POST" action="{{ route('randonnees.destroy', $randonnee) }}"
+                            onsubmit="return confirm('Supprimer définitivement cette randonnée ?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn-delete-randonnee">Supprimer cette randonnée</button>
+                        </form>
+                    @endif
+                @endauth
 
                 <a href="{{ route('randonnees.index') }}" class="btn-back">← Retour au catalogue</a>
             </div>
