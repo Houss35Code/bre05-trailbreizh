@@ -51,12 +51,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/randonnees', [RandonneeController::class, 'store'])->name('randonnees.store');
+    Route::get('/randonnees/{randonnee}/edit', [RandonneeController::class, 'edit'])->name('randonnees.edit');
+    Route::put('/randonnees/{randonnee}', [RandonneeController::class, 'update'])->name('randonnees.update');
+    Route::delete('/randonnees/{randonnee}', [RandonneeController::class, 'destroy'])->name('randonnees.destroy');
 
     Route::post('/favoris', [FavoriController::class, 'store'])->name('favoris.store');
     Route::delete('/favoris', [FavoriController::class, 'destroy'])->name('favoris.destroy');
 
     Route::post('/avis', [AvisController::class, 'store'])->name('avis.store');
     Route::delete('/avis/{avis}', [AvisController::class, 'destroy'])->name('avis.destroy');
+    Route::post('/avis/{avis}/signaler', [AvisController::class, 'signaler'])->name('avis.signaler');
 
     Route::post('/photos', [PhotoController::class, 'store'])->name('photos.store');
     Route::delete('/photos/{photo}', [PhotoController::class, 'destroy'])->name('photos.destroy');
@@ -71,10 +75,19 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::get('/randonnees', [AdminController::class, 'randonnees'])->name('randonnees');
     Route::delete('/randonnees/{randonnee}', [AdminController::class, 'deleteRandonnee'])->name('randonnees.delete');
+    Route::get('/randonnees/en-attente', [AdminController::class, 'randonneesEnAttente'])->name('randonnees.en-attente');
+    Route::patch('/randonnees/{randonnee}/valider', [AdminController::class, 'valider'])->name('randonnees.valider');
+    Route::patch('/randonnees/{randonnee}/refuser', [AdminController::class, 'refuser'])->name('randonnees.refuser');
+    Route::get('/randonnees/corbeille', [AdminController::class, 'corbeille'])->name('randonnees.corbeille');
+    Route::patch('/randonnees/{id}/restaurer', [AdminController::class, 'restaurer'])->name('randonnees.restaurer');
     Route::get('/utilisateurs', [AdminController::class, 'utilisateurs'])->name('utilisateurs');
     Route::delete('/utilisateurs/{user}', [AdminController::class, 'deleteUtilisateur'])->name('utilisateurs.delete');
     Route::get('/avis', [AdminController::class, 'avis'])->name('avis');
     Route::delete('/avis/{avis}', [AdminController::class, 'deleteAvis'])->name('avis.delete');
+    Route::get('/avis/signales', [AdminController::class, 'avisSignales'])->name('avis.signales');
+    Route::delete('/avis/{avis}/signale', [AdminController::class, 'supprimerAvisSignale'])->name('avis.signale.supprimer');
+    Route::patch('/signalements/{signalement}/ignorer', [AdminController::class, 'ignorerSignalement'])->name('signalements.ignorer');
+    Route::post('/avis/{avis}/avertir', [AdminController::class, 'avertirAuteur'])->name('avis.avertir');
 });
 
 require __DIR__ . '/auth.php';
