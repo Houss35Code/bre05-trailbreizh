@@ -2,6 +2,7 @@
 
 .navbar {
     background-color: $color-primary;
+    box-sizing: border-box;
 }
 
 .nav-inner {
@@ -12,6 +13,7 @@
     justify-content: space-between;
     align-items: center;
     height: $nav-height;
+    box-sizing: border-box;
 }
 
 .nav-logo {
@@ -62,6 +64,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    box-sizing: border-box;
 }
 
 .nav-burger {
@@ -78,6 +81,8 @@
     padding: 16px 24px;
     flex-direction: column;
     gap: 4px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .nav-mobile-link {
@@ -87,6 +92,7 @@
     padding: 10px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: block;
+    box-sizing: border-box;
 }
 
 .nav-mobile-btn {
@@ -103,6 +109,7 @@
     text-align: center;
     text-decoration: none;
     margin-top: 10px;
+    box-sizing: border-box; /* Garantit que le bouton reste dans le conteneur */
 }
 
 @media (max-width: $breakpoint-mobile) {

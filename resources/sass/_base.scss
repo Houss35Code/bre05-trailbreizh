@@ -1,5 +1,9 @@
 @use 'variables' as *;
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 .site-body {
     margin: 0;
     font-family: $font-family;
