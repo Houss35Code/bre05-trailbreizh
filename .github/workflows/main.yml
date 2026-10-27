@@ -22,6 +22,7 @@ jobs:
             cd ~/www/bre05-trailbreizh
             git pull origin main
             COMPOSER_PROCESS_TIMEOUT=2000 composer install --no-dev --prefer-dist --no-progress --optimize-autoloader
+            php artisan cache:clear
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
