@@ -14,18 +14,22 @@
 
                 <div class="filter-group">
                     <label class="filter-label">Recherche</label>
-                    <input type="text" name="search" value="{{ request('search') }}"
-                        placeholder="Nom de la randonnée..." class="filter-input">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Nom de la randonnée..."
+                        class="filter-input">
                 </div>
 
                 <div class="filter-group">
                     <label class="filter-label">Département</label>
                     <select name="departement" class="filter-select">
                         <option value="">Tous les départements</option>
-                        <option value="finistere" {{ request('departement') == 'finistere' ? 'selected' : '' }}>Finistère</option>
-                        <option value="cotes-darmor" {{ request('departement') == 'cotes-darmor' ? 'selected' : '' }}>Côtes d'Armor</option>
-                        <option value="morbihan" {{ request('departement') == 'morbihan' ? 'selected' : '' }}>Morbihan</option>
-                        <option value="ille-et-vilaine" {{ request('departement') == 'ille-et-vilaine' ? 'selected' : '' }}>Ille-et-Vilaine</option>
+                        <option value="finistere" {{ request('departement') == 'finistere' ? 'selected' : '' }}>Finistère
+                        </option>
+                        <option value="cotes-darmor" {{ request('departement') == 'cotes-darmor' ? 'selected' : '' }}>Côtes
+                            d'Armor</option>
+                        <option value="morbihan" {{ request('departement') == 'morbihan' ? 'selected' : '' }}>Morbihan
+                        </option>
+                        <option value="ille-et-vilaine" {{ request('departement') == 'ille-et-vilaine' ? 'selected' : '' }}>
+                            Ille-et-Vilaine</option>
                     </select>
                 </div>
 
@@ -35,7 +39,8 @@
                         <option value="">Toutes les difficultés</option>
                         <option value="facile" {{ request('difficulte') == 'facile' ? 'selected' : '' }}>Facile</option>
                         <option value="moyen" {{ request('difficulte') == 'moyen' ? 'selected' : '' }}>Moyen</option>
-                        <option value="difficile" {{ request('difficulte') == 'difficile' ? 'selected' : '' }}>Difficile</option>
+                        <option value="difficile" {{ request('difficulte') == 'difficile' ? 'selected' : '' }}>Difficile
+                        </option>
                         <option value="expert" {{ request('difficulte') == 'expert' ? 'selected' : '' }}>Expert</option>
                     </select>
                 </div>
@@ -46,14 +51,16 @@
                         <option value="">Tous les terrains</option>
                         <option value="cote" {{ request('type_terrain') == 'cote' ? 'selected' : '' }}>Côte</option>
                         <option value="foret" {{ request('type_terrain') == 'foret' ? 'selected' : '' }}>Forêt</option>
-                        <option value="montagne" {{ request('type_terrain') == 'montagne' ? 'selected' : '' }}>Montagne</option>
-                        <option value="campagne" {{ request('type_terrain') == 'campagne' ? 'selected' : '' }}>Campagne</option>
+                        <option value="montagne" {{ request('type_terrain') == 'montagne' ? 'selected' : '' }}>Montagne
+                        </option>
+                        <option value="campagne" {{ request('type_terrain') == 'campagne' ? 'selected' : '' }}>Campagne
+                        </option>
                     </select>
                 </div>
 
                 <button type="submit" class="filter-btn">Appliquer les filtres</button>
 
-                @if(request()->anyFilled(['search', 'departement', 'difficulte', 'type_terrain']))
+                @if (request()->anyFilled(['search', 'departement', 'difficulte', 'type_terrain']))
                     <a href="{{ route('randonnees.index') }}" class="filter-reset">Réinitialiser les filtres</a>
                 @endif
 
@@ -67,15 +74,19 @@
                 <span class="catalogue-count">{{ $randonnees->total() }} randonnée(s) trouvée(s)</span>
             </div>
 
-            @if($randonnees->count() > 0)
+            @if ($randonnees->count() > 0)
                 <div class="randonnees-grid">
-                    @foreach($randonnees as $randonnee)
+                    @foreach ($randonnees as $randonnee)
                         <div class="rando-card">
                             <div class="rando-card-thumb">
-                                @if($randonnee->type_terrain == 'cote') 🌊
-                                @elseif($randonnee->type_terrain == 'foret') 🌿
-                                @elseif($randonnee->type_terrain == 'montagne') 🏔️
-                                @else 🌾
+                                @if ($randonnee->type_terrain == 'cote')
+                                    🌊
+                                @elseif($randonnee->type_terrain == 'foret')
+                                    🌿
+                                @elseif($randonnee->type_terrain == 'montagne')
+                                    🏔️
+                                @else
+                                    🌾
                                 @endif
                             </div>
                             <div class="rando-card-body">
@@ -92,11 +103,6 @@
                         </div>
                     @endforeach
                 </div>
-
-                <div class="pagination-wrapper">
-                    {{ $randonnees->links() }}
-                </div>
-
             @else
                 <div class="no-results">
                     <div class="no-results-icon">🔍</div>
